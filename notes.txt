@@ -1,0 +1,175 @@
+create backend folder+forntend folder
+
+****server.js side**********
+cntrl + j == terminal
+//to go back in folder cd ..
+//to package
+npm init -y
+npm install express mongoose dotenv
+
+express as webframe work
+
+create server.js
+in package.json create "type":"module" ..so that we use import and export
+
+node .\backend\server.js
+instead of this we can add this in pacakage in scripts
+"dev" :"node backend/server.js"
+so that we can npm run dev
+
+for continues save give and refresh npm i nodemon -D
+and change in nodemon in script nodemon backend/server.js
+"/ is route in below "
+in our app first products route
+app.get("/",(req,res) =>{
+  res.send("server is started123")
+})
+
+****Mongodb database******
+mongo pwd nA7l5BOcB3KtUwdp
+
+crate new project->create cluster->next ->close->get connection string
+connection string
+mongodb+srv://<db_username>:<db_password>@cluster0.ovaii.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+to acccess .env we installed dotenv 
+
+express json is a middleware that allows us to know 
+
+patch is some field put for all field
+
+first we make all routes in server.js 
+next making router folder and pushing
+
+router.get("/api/products",async (req,res)=>{
+    try{
+      const products = await Product.find({});
+      res.status(200).json({success:true,data:products});
+
+    }catch(error)
+    {
+      console.log("error in fetching products: ",error.message);
+      res.status(500).json({success:false,message:"Server Error"});
+    }
+})
+
+router.post("/api/products",async (req,res)=>{
+    const product = req.body;
+
+    if(!product.name || !product.price || !product.image){
+        return res.status(400).json({success:false ,message:"Please provide all fields"});
+    }
+    const newProduct = new Product(product)
+
+    try{
+        await newProduct.save();
+        res.status(201).json({success:true,data:newProduct})
+
+    }catch(error){
+     console.error("Error in Create producr: ",error.message);
+     res.status(500).json({success:false,message:"Server Error"});
+    }
+});
+
+router.delete("/api/products/:id",async (req,res) =>{
+    const {id} = req.params
+    try{
+        await Product.findByIdAndDelete(id);
+        res.status(200).json({success:true,message:"Product deleted"});
+
+    }
+    catch(error)
+    {
+        console.log("error in deleting product",error.message);
+        res.status(404).json({success:false, message:"Product not found"})
+    }
+})
+router.put("/api/products/:id",async(req,res)=>{
+    const {id}=req.params;
+    const product = req.body;
+ 
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({success:false,message:"Invalid Product Id"})
+    }
+
+
+    try{
+       const updatedProduct= await Product.findByIdAndUpdate(id,product,{new:true});
+       res.status(200).json({success:true,data:updatedProduct});
+    }catch(error){
+        res.status(500).json({success:false,message:"server Error"})
+    }
+})
+
+****************frotend*******
+create new terminal->>>>> cd forntend
+npm create vite@latest .
+cd forntend
+npm install
+
+npm i react-router-dom
+
+npm i react-icons
+
+usestate
+
+const CreatePage = () =>{
+    const [newProduct,setnewProduct]=usestate({
+        name="",
+        price=" ",
+        image=" ",
+    })
+}
+add product
+insidefunction
+console.log(newProduct)
+<Input
+placeholder='Product Name'
+name='name'
+value={newProduct.name}
+onChange={(e) => setNewProduct({...newProduct,name:e.target.value})}
+/>
+
+npm install zustand
+import {create} from "zustand"
+export const useProductStore = create((set) =>{{
+    product:[],
+    setProduct:(products)=>set({products}),
+    createProduct:async (newProduct)=>{
+       if(!newProduct.anem ||image ||price)
+       {
+        return {success:false,message:"Please }
+       }
+       const re= a
+    }
+}})
+
+server :{
+    proxy:{
+        "/api":{
+            target:"http://locslhost:5000
+        }
+    }
+}
+
+const res = await fetch("/api/products",{
+    method:"POST",
+    headers:{
+        "content-type":"application/json"
+    },
+    body:JSON.stringify(newproduct)
+})
+const data = await res.json();
+set((state)=>({products:})
+})
+
+build:"npm install && npm install --prefix frontend && npm run buid --prefix frontend"
+npm build
+start :node backend/server.js
+
+github
+
+git init
+
+in git ignore .env
+
