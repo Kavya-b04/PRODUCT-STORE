@@ -39,7 +39,7 @@ A full-stack web application built with React.js, Node.js, Express.js, and Mongo
 
 🛠️ Setup Instructions
 1. Clone the Repository
-``` git clone https://github.com/your-username/your-repo-name.git```
+``` git clone https://github.com/Kavya-b04/PRODUCT-STORE.git```
 cd your-repo-name
 2. Setup Backend
 ```
