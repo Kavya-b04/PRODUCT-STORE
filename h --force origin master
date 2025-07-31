@@ -1,0 +1,31 @@
+[33mcommit e94b8f19975859b3100e182c29e5a2d12e4fe029[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: unknown <kavyabalamurugan04@gmail.com>
+Date:   Fri Apr 4 00:44:09 2025 +0530
+
+    Added backend, frontend, and configuration files
+
+.gitignore
+backend/config/db.js
+backend/controller/product.controller.js
+backend/models/product.model.js
+backend/routes/product.route.js
+backend/server.js
+frontend/README.md
+frontend/eslint.config.js
+frontend/index.html
+frontend/package-lock.json
+frontend/package.json
+frontend/public/vite.svg
+frontend/src/App.css
+frontend/src/App.jsx
+frontend/src/components/Navbar.jsx
+frontend/src/components/ProductCard.jsx
+frontend/src/index.css
+frontend/src/main.jsx
+frontend/src/pages/CreatePage.jsx
+frontend/src/pages/HomePage.jsx
+frontend/src/store/product.js
+frontend/vite.config.js
+notes.txt
+package-lock.json
+package.json
